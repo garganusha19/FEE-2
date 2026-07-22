@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MemeVerse 😂</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* ================= BACKGROUND ================= */
+
+body{
+    background:linear-gradient(135deg,#0B132B,#1C2541,#3A506B,#0F3460);
+}
+
+/* ================= NAVBAR ================= */
+
+header{
+    background:linear-gradient(90deg,#0B132B,#1C2541);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 5px 15px rgba(0,0,0,.4);
+}
+
+header h1{
+    color:#8BE9FD;
+    font-size:38px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#D6E4FF;
+    margin-left:25px;
+    font-size:18px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#00E5FF;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+
+    height:300px;
+
+    background:linear-gradient(135deg,#16213E,#1F4068,#0F3460);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.hero h2{
+
+    font-size:55px;
+
+    color:#EAF6FF;
+
+}
+
+.hero p{
+
+    margin-top:15px;
+
+    font-size:24px;
+
+    color:#C7D8F5;
+
+}
+
+/* ================= HEADING ================= */
+
+.heading{
+
+    text-align:center;
+
+    margin:50px 0;
+
+    color:#9AD0FF;
+
+    font-size:42px;
+
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+
+    width:90%;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+    padding-bottom:40px;
+
+}
+
+/* ================= CARD ================= */
+
+.card{
+
+    background:#1E293B;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(120,190,255,.15);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.45);
+
+    transition:.4s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px) scale(1.03);
+
+    border-color:#38BDF8;
+
+    box-shadow:0 20px 40px rgba(0,180,255,.25);
+
+}
+
+/* ================= IMAGE ================= */
+
+.meme-image{
+
+    position:relative;
+
+}
+
+.meme-image img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+/* ================= CAPTION ================= */
+
+.caption{
+
+    position:absolute;
+
+    bottom:15px;
+
+    width:100%;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:24px;
+
+    font-family:Impact,sans-serif;
+
+    text-shadow:
+        3px 3px 6px black,
+        -2px -2px 3px black;
+
+    padding:0 10px;
+
+}
+
+/* ================= CARD TEXT ================= */
+
+.card h3{
+
+    color:#7DD3FC;
+
+    padding:18px;
+
+}
+
+.card p{
+
+    color:#D1D5DB;
+
+    padding:0 18px 20px;
+
+    line-height:1.6;
+
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    margin-top:60px;
+
+    background:#0B132B;
+
+    text-align:center;
+
+    padding:25px;
+
+    color:#9AD0FF;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    border-top:1px solid rgba(255,255,255,.1);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>😂 MemeVerse</h1>
+
+<nav>
+
+<a href="#">Home</a>
+
+<a href="#">Trending</a>
+
+<a href="#">Categories</a>
+
+<a href="#">About</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h2>Welcome 👋</h2>
+
+<p>Because Assignments Are Temporary, Memes Are Forever!</p>
+
+</section>
+
+<h2 class="heading">🔥 Trending Memes 🔥</h2>
+
+<section class="gallery">
+
+<!-- CARD 1 -->
+
+<div class="card">
+
+<div class="meme-image">
+
+<img src="https://i.pinimg.com/736x/0e/2e/8e/0e2e8e20ed8da5080c061d98fef31c8e.jpg" alt="Exam Meme">
+
+<div class="caption">
+
+ME ONE NIGHT BEFORE EXAM 😭
+
+</div>
+
+</div>
+
+<h3>📚 Exam Preparation</h3>
+
+<p>
+
+Expectation:
+"I'll start studying tomorrow."
+
+<br><br>
+
+Reality:
+Tomorrow never comes.
+
+</p>
+
+</div>
+
+<!-- CARD 2 -->
+
+<div class="card">
+
+<div class="meme-image">
+
+<img src="https://i.pinimg.com/736x/af/bb/0c/afbb0c3fea7fc23498133967e5423e46.jpg" alt="Study Meme">
+
+<div class="caption">
+
+KYA AAPKO TYAARI DIKH RAHI HAI?
+
+</div>
+
+</div>
+
+<h3>☕ Study Mode</h3>
+
+<p>
+
+Engineer after studying for 8 hours...
+
+<br><br>
+
+Still staring at the first page.
+
+</p>
+
+</div>
+
+<!-- CARD 3 -->
+
+<div class="card">
+
+<div class="meme-image">
+
+<img src="https://i.pinimg.com/736x/20/a1/78/20a17866a2b0df65a35473c0c807c3c7.jpg" alt="Degree Meme">
+
+<div class="caption">
+
+ENGINEERS AFTER COMPLETING THEIR DEGREE
+
+</div>
+
+</div>
+
+<h3>🎉 Hope Restored</h3>
+
+<p>
+
+The happiest moment in every engineer's life...
+
+<br><br>
+
+Finally saying, "No more assignments!"
+
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+Made with 💙 | MemeVerse © 2026
+
+</footer>
+
+</body>
+</html>
