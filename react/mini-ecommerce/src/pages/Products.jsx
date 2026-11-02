@@ -42,93 +42,66 @@ function Products() {
 
   return (
 
-    <div className="products-page">
+    <main className="products-page">
+      <header className="products-header">
+        <div>
+          <h1 className="page-heading">Our Products</h1>
+          <p className="page-intro">Find something you'll love from our everyday collection.</p>
+        </div>
+      </header>
 
-      <h1>Our Products</h1>
+      <div className="product-toolbar">
+        <label className="search-field">
+          <span aria-hidden="true">⌕</span>
+          <input
+            type="search"
+            aria-label="Search products"
+            placeholder="Search products..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </label>
 
-      {/* Search Bar */}
-
-      <input
-        type="text"
-        placeholder="Search products..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-
-      {/* Category Filter */}
-
-      <select
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      >
-
-        <option value="All">All Categories</option>
-
-        <option value="Electronics">
-          Electronics
-        </option>
-
-        <option value="Fashion">
-          Fashion
-        </option>
-
-        <option value="Accessories">
-          Accessories
-        </option>
-
-      </select>
-
-      {/* Confirmation Message */}
+        <select
+          aria-label="Filter by category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value="All">All Categories</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Accessories">Accessories</option>
+        </select>
+      </div>
 
       {message && (
-        <p className="success-message">
-          {message}
+        <p className="success-message" role="status" aria-live="polite">
+          <span aria-hidden="true">✓</span> {message}
         </p>
       )}
 
-      {/* Product Grid */}
-
       <div className="product-grid">
-
         {filteredProducts.length > 0 ? (
-
           filteredProducts.map((product) => (
-
-            <div
-              className="product-card"
-              key={product.id}
-            >
-
-              <img
-                src={product.image}
-                alt={product.name}
-              />
-
-              <h3>{product.name}</h3>
-
-              <p>₹{product.price}</p>
-
-              <p>Category: {product.category}</p>
-
-              <button
-                onClick={() => handleAddToCart(product)}
-              >
-                Add to Cart
-              </button>
-
-            </div>
-
+            <article className="product-card" key={product.id}>
+              <div className="product-image-wrap">
+                <img src={product.image} alt={product.name} />
+              </div>
+              <div className="product-card-content">
+                <span className="product-category">{product.category}</span>
+                <h3>{product.name}</h3>
+                <p className="product-price">₹{product.price}</p>
+                <button className="button button-primary" onClick={() => handleAddToCart(product)}>
+                  Add to Cart <span aria-hidden="true">+</span>
+                </button>
+              </div>
+            </article>
           ))
-
         ) : (
-
-          <p>No products found.</p>
-
+          <p className="empty-results">No products found. Try another search or category.</p>
         )}
-
       </div>
-
-    </div>
+    </main>
 
   );
 

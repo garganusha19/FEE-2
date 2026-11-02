@@ -22,19 +22,14 @@ function Checkout() {
 
     return (
 
-      <div className="checkout-page">
-
-        <h1>Checkout</h1>
-
-        <p>Your cart is empty.</p>
-
-        <button
-          onClick={() => navigate("/products")}
-        >
-          Browse Products
+      <main className="checkout-page checkout-empty">
+        <div className="empty-visual" aria-hidden="true">🛍</div>
+        <h1>Nothing to check out yet</h1>
+        <p>Your cart is empty. Add a few favorites and come back when you're ready.</p>
+        <button className="button button-primary" onClick={() => navigate("/products")}>
+          Browse Products <span aria-hidden="true">→</span>
         </button>
-
-      </div>
+      </main>
 
     );
 
@@ -42,58 +37,66 @@ function Checkout() {
 
   return (
 
-    <div className="checkout-page">
+    <main className="checkout-page">
+      <header className="checkout-heading">
+        <h1 className="page-heading">Checkout</h1>
+        <p className="page-intro">A few details and your order will be on its way.</p>
+      </header>
 
-      <h1>Checkout</h1>
+      <div className="checkout-layout">
+        <section className="delivery-card">
+          <h2>Delivery details</h2>
+          <p>Where should we send your order?</p>
+          <div className="delivery-fields">
+            <label>
+              Full name
+              <input type="text" placeholder="Your name" autoComplete="name" />
+            </label>
+            <label>
+              Phone number
+              <input type="tel" placeholder="Your phone number" autoComplete="tel" />
+            </label>
+            <label className="field-wide">
+              Email address
+              <input type="email" placeholder="you@example.com" autoComplete="email" />
+            </label>
+            <label className="field-wide">
+              Delivery address
+              <input type="text" placeholder="House number, street, area" autoComplete="street-address" />
+            </label>
+            <label>
+              City
+              <input type="text" placeholder="City" autoComplete="address-level2" />
+            </label>
+            <label>
+              Postal code
+              <input type="text" placeholder="Postal code" autoComplete="postal-code" />
+            </label>
+          </div>
+        </section>
 
-      <h2>Order Summary</h2>
-
-      {/* Order Items */}
-
-      {items.map((item) => (
-
-        <div
-          className="checkout-item"
-          key={item.id}
-        >
-
-          <h3>{item.name}</h3>
-
-          <p>
-            Quantity: {item.quantity}
-          </p>
-
-          <p>
-            Price: ₹{item.price}
-          </p>
-
-          <p>
-            Subtotal: ₹{item.price * item.quantity}
-          </p>
-
-        </div>
-
-      ))}
-
-      {/* Total */}
-
-      <h2>
-        Total Amount: ₹{totalPrice}
-      </h2>
-
-      <button
-        onClick={() => navigate("/cart")}
-      >
-        Back to Cart
-      </button>
-
-      <button
-        onClick={() => alert("Order placed successfully!")}
-      >
-        Place Order
-      </button>
-
-    </div>
+        <aside className="checkout-summary">
+          <h2>Order Summary</h2>
+          {items.map((item) => (
+            <article className="checkout-item" key={item.id}>
+              <h3>{item.name}</h3>
+              <p>Qty {item.quantity} · ₹{item.price} each</p>
+              <p className="checkout-subtotal">₹{item.price * item.quantity}</p>
+            </article>
+          ))}
+          <div className="summary-divider" />
+          <div className="summary-total"><span>Total amount</span><strong>₹{totalPrice}</strong></div>
+          <div className="checkout-actions">
+            <button className="button button-primary" onClick={() => alert("Order placed successfully!")}>
+              Place Order <span aria-hidden="true">→</span>
+            </button>
+            <button className="button button-secondary" onClick={() => navigate("/cart")}>
+              Back to Cart
+            </button>
+          </div>
+        </aside>
+      </div>
+    </main>
 
   );
 
